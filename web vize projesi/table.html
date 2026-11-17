@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Besin Değeri Tablosu | Yemek Tarifleri Portalı</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==================== ÜST MENÜ (NAVBAR) ==================== -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        🍲 <span>NefisLezzetler</span>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Tarifler (Liste)</a></li>
+        <li><a href="detail.html" class="nav-link">Tarif Detayı</a></li>
+        <li><a href="table.html" class="nav-link active">Besin Değerleri</a></li>
+        <li><a href="form.html" class="nav-link nav-btn">+ Yeni Tarif Paylaş</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO BÖLÜMÜ ==================== -->
+  <div class="hero-section">
+    <div class="container">
+      <h1 class="hero-title">Tariflerin Besin Değerleri Karşılaştırması</h1>
+      <p class="hero-subtitle">
+        Tüm yemek tariflerinin porsiyon başına düşen kalori, protein, karbonhidrat ve yağ değerlerini toplu olarak inceleyin.
+      </p>
+    </div>
+  </div>
+
+  <!-- ==================== ANA İÇERİK ==================== -->
+  <div class="container">
+
+    <!-- Özet İstatistik Kartları (Div Grid) -->
+    <div class="stats-cards-grid">
+      <div class="stat-card">
+        <div class="stat-icon">🍲</div>
+        <div class="stat-info">
+          <div id="stat-total" class="stat-val">0</div>
+          <div class="stat-lbl">Toplam Kayıtlı Tarif</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">🔥</div>
+        <div class="stat-info">
+          <div id="stat-avg-cal" class="stat-val">0 kcal</div>
+          <div class="stat-lbl">Ortalama Kalori</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">💪</div>
+        <div class="stat-info">
+          <div id="stat-top-protein" class="stat-val">-</div>
+          <div class="stat-lbl">En Yüksek Protein</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">🥗</div>
+        <div class="stat-info">
+          <div id="stat-lowest-cal" class="stat-val">-</div>
+          <div class="stat-lbl">En Düşük Kalori</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tablo İçi Arama ve Filtreleme -->
+    <div class="filter-bar">
+      <div class="search-box">
+        <input 
+          type="text" 
+          id="table-search" 
+          class="search-input" 
+          placeholder="Tabloda tarif veya kategori ara..."
+        >
+      </div>
+      <div style="display: flex; gap: 8px;">
+        <button type="button" onclick="handleResetDefaults()" class="btn btn-secondary" style="font-size: 0.85rem; padding: 8px 12px;" title="Varsayılan başlangıç tariflerini geri yükler">
+          🔄 Sıfırla
+        </button>
+        <a href="form.html" class="btn btn-primary" style="font-size: 0.85rem; padding: 8px 14px;">
+          + Yeni Tarif Ekle
+        </a>
+      </div>
+    </div>
+
+    <!-- Düzenli HTML Tablosu (table-responsive div içinde) -->
+    <div class="table-responsive">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Tarif Adı</th>
+            <th>Kategori</th>
+            <th>Porsiyon</th>
+            <th>Kalori (kcal)</th>
+            <th>Protein (g)</th>
+            <th>Karb (g)</th>
+            <th>Yağ (g)</th>
+            <th>İşlem</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <!-- JavaScript tarafından doldurulacaktır -->
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <!-- ==================== ALT BİLGİ (FOOTER) ==================== -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div>
+        <strong>CEN227 İnternet Programcılığı</strong> — Vize Projesi (Yemek Portalı)
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Tarifler</a>
+        <a href="detail.html">Detay</a>
+        <a href="form.html">Tarif Gönder</a>
+        <a href="table.html">Besin Tablosu</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script Dosyaları -->
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
+

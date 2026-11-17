@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yemek Tarifleri Portalı | Liste Sayfası</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==================== ÜST MENÜ (NAVBAR) ==================== -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        🍲 <span>NefisLezzetler</span>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Tarifler (Liste)</a></li>
+        <li><a href="detail.html" class="nav-link">Tarif Detayı</a></li>
+        <li><a href="table.html" class="nav-link">Besin Değerleri</a></li>
+        <li><a href="form.html" class="nav-link nav-btn">+ Yeni Tarif Paylaş</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO BÖLÜMÜ ==================== -->
+  <div class="hero-section">
+    <div class="container">
+      <h1 class="hero-title">En Sevilen Yemek Tarifleri</h1>
+      <p class="hero-subtitle">
+        Geleneksel Türk lezzetlerinden modern tariflere kadar özenle seçilmiş pratik ve lezzetli yemekleri keşfedin.
+      </p>
+    </div>
+  </div>
+
+  <!-- ==================== ANA İÇERİK ==================== -->
+  <div class="container">
+
+    <!-- Arama ve Filtreleme Alanı (Div) -->
+    <div class="filter-bar">
+      <div class="search-box">
+        <input 
+          type="text" 
+          id="search-input" 
+          class="search-input" 
+          placeholder="Tarif adı veya açıklama ile ara..."
+        >
+      </div>
+
+      <div class="category-chips">
+        <button class="chip-btn active" data-category="all">Tümü</button>
+        <button class="chip-btn" data-category="Çorbalar">Çorbalar</button>
+        <button class="chip-btn" data-category="Ana Yemekler">Ana Yemekler</button>
+        <button class="chip-btn" data-category="Salatalar">Salatalar</button>
+        <button class="chip-btn" data-category="Tatlılar">Tatlılar</button>
+      </div>
+    </div>
+
+    <!-- Tarif Sayacı Bilgisi -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 8px;">
+      <div>
+        <span id="recipe-count" style="font-weight: 600; color: #64748b; font-size: 0.95rem;"></span>
+        <button type="button" onclick="handleResetDefaults()" style="background: none; border: none; color: #94a3b8; font-size: 0.85rem; cursor: pointer; text-decoration: underline; margin-left: 8px;">
+          (Varsayılanları Sıfırla)
+        </button>
+      </div>
+      <a href="table.html" style="color: #e65100; font-weight: 600; font-size: 0.9rem;">
+        📊 Tüm Besin Değerleri Tablosuna Git →
+      </a>
+    </div>
+
+    <!-- Tarif Kartlarının Dinamik Olarak Listeleneceği Grid Konteyneri -->
+    <div id="recipe-grid" class="recipe-grid">
+      <!-- JavaScript tarafından doldurulacaktır -->
+    </div>
+
+  </div>
+
+  <!-- ==================== ALT BİLGİ (FOOTER) ==================== -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div>
+        <strong>CEN227 İnternet Programcılığı</strong> — Vize Projesi (Yemek Portalı)
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Tarifler</a>
+        <a href="detail.html">Detay</a>
+        <a href="form.html">Tarif Gönder</a>
+        <a href="table.html">Besin Tablosu</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script Dosyaları -->
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
+

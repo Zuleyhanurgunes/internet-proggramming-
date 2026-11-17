@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarif Gönderme Formu | Yemek Tarifleri Portalı</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==================== ÜST MENÜ (NAVBAR) ==================== -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        🍲 <span>NefisLezzetler</span>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Tarifler (Liste)</a></li>
+        <li><a href="detail.html" class="nav-link">Tarif Detayı</a></li>
+        <li><a href="table.html" class="nav-link">Besin Değerleri</a></li>
+        <li><a href="form.html" class="nav-link nav-btn active">+ Yeni Tarif Paylaş</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO BÖLÜMÜ ==================== -->
+  <div class="hero-section">
+    <div class="container">
+      <h1 class="hero-title">Kendi Tarifini Paylaş</h1>
+      <p class="hero-subtitle">
+        En lezzetli tariflerinizi ve besin değerlerini topluluğumuzla paylaşmak için aşağıdaki formu doldurunuz.
+      </p>
+    </div>
+  </div>
+
+  <!-- ==================== ANA İÇERİK ==================== -->
+  <div class="container">
+
+    <!-- Başarı Bildirim Kutusu (Alert) -->
+    <div id="success-alert" class="alert-box alert-success"></div>
+
+    <!-- Form Kartı -->
+    <div class="form-card">
+      <form id="recipe-form" novalidate>
+        
+        <!-- Bölüm 1: Genel Bilgiler -->
+        <div class="form-section-title">1. Temel Tarif Bilgileri</div>
+        
+        <div class="form-grid">
+          <!-- Tarif Adı -->
+          <div class="form-group col-full">
+            <label for="name" class="form-label">Tarif Adı <span class="req">*</span></label>
+            <input 
+              type="text" 
+              id="name" 
+              class="form-control" 
+              placeholder="Örn: Zeytinyağlı Yaprak Sarması" 
+              required
+            >
+            <span id="name-error" class="error-message"></span>
+          </div>
+
+          <!-- Kategori -->
+          <div class="form-group">
+            <label for="category" class="form-label">Kategori <span class="req">*</span></label>
+            <select id="category" class="form-control" required>
+              <option value="">Seçiniz...</option>
+              <option value="Çorbalar">Çorbalar</option>
+              <option value="Ana Yemekler">Ana Yemekler</option>
+              <option value="Deniz Ürünleri">Deniz Ürünleri</option>
+              <option value="Salatalar">Salatalar</option>
+              <option value="Tatlılar">Tatlılar</option>
+              <option value="Aperatifler">Aperatifler</option>
+            </select>
+            <span id="category-error" class="error-message"></span>
+          </div>
+
+          <!-- Zorluk Derecesi -->
+          <div class="form-group">
+            <label for="difficulty" class="form-label">Zorluk Derecesi</label>
+            <select id="difficulty" class="form-control">
+              <option value="Kolay">Kolay</option>
+              <option value="Orta" selected>Orta</option>
+              <option value="Zor">Zor</option>
+            </select>
+          </div>
+
+          <!-- Hazırlama Süresi -->
+          <div class="form-group">
+            <label for="prepTime" class="form-label">Hazırlama Süresi <span class="req">*</span></label>
+            <input 
+              type="text" 
+              id="prepTime" 
+              class="form-control" 
+              placeholder="Örn: 20 dk" 
+              required
+            >
+            <span id="prepTime-error" class="error-message"></span>
+          </div>
+
+          <!-- Pişirme Süresi -->
+          <div class="form-group">
+            <label for="cookTime" class="form-label">Pişirme Süresi <span class="req">*</span></label>
+            <input 
+              type="text" 
+              id="cookTime" 
+              class="form-control" 
+              placeholder="Örn: 35 dk" 
+              required
+            >
+            <span id="cookTime-error" class="error-message"></span>
+          </div>
+
+          <!-- Porsiyon -->
+          <div class="form-group">
+            <label for="servings" class="form-label">Porsiyon Miktarı <span class="req">*</span></label>
+            <input 
+              type="text" 
+              id="servings" 
+              class="form-control" 
+              placeholder="Örn: 4 Kişilik" 
+              required
+            >
+            <span id="servings-error" class="error-message"></span>
+          </div>
+
+          <!-- Görsel URL -->
+          <div class="form-group">
+            <label for="image" class="form-label">Görsel Bağlantısı (URL)</label>
+            <input 
+              type="url" 
+              id="image" 
+              class="form-control" 
+              placeholder="https://images.unsplash.com/..."
+            >
+            <span class="form-hint">İsteğe bağlı. Boş bırakırsanız varsayılan bir görsel atanacaktır.</span>
+          </div>
+
+          <!-- Kısa Açıklama -->
+          <div class="form-group col-full">
+            <label for="description" class="form-label">Kısa Açıklama <span class="req">*</span></label>
+            <textarea 
+              id="description" 
+              class="form-control" 
+              placeholder="Tarifinizi özetleyen iştah açıcı birkaç cümle..." 
+              required
+            ></textarea>
+            <span id="description-error" class="error-message"></span>
+          </div>
+        </div>
+
+        <!-- Bölüm 2: Malzemeler ve Hazırlanış -->
+        <div class="form-section-title">2. Malzeme ve Yapılış Aşamaları</div>
+
+        <div class="form-grid">
+          <!-- Malzemeler -->
+          <div class="form-group">
+            <label for="ingredients" class="form-label">Malzemeler (Her satıra bir malzeme) <span class="req">*</span></label>
+            <textarea 
+              id="ingredients" 
+              class="form-control" 
+              style="min-height: 140px;" 
+              placeholder="1 su bardağı mercimek&#10;1 adet soğan&#10;1 yemek kaşığı tereyağı" 
+              required
+            ></textarea>
+            <span class="form-hint">Her yeni malzemeyi Enter tuşuna basarak alt satıra yazınız.</span>
+            <span id="ingredients-error" class="error-message"></span>
+          </div>
+
+          <!-- Hazırlanış -->
+          <div class="form-group">
+            <label for="instructions" class="form-label">Hazırlanış Adımları (Her satıra bir adım) <span class="req">*</span></label>
+            <textarea 
+              id="instructions" 
+              class="form-control" 
+              style="min-height: 140px;" 
+              placeholder="Soğanları yemeklik doğrayın.&#10;Tencerede tereyağını eritin.&#10;Mercimekleri ekleyip kavurun." 
+              required
+            ></textarea>
+            <span class="form-hint">Her pişirme adımını Enter tuşuna basarak alt satıra yazınız.</span>
+            <span id="instructions-error" class="error-message"></span>
+          </div>
+        </div>
+
+        <!-- Bölüm 3: Besin Değerleri -->
+        <div class="form-section-title">3. Porsiyon Başına Besin Değerleri (Tahmini)</div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="calories" class="form-label">Kalori (kcal) <span class="req">*</span></label>
+            <input type="number" id="calories" class="form-control" placeholder="Örn: 250" min="0" required>
+          </div>
+
+          <div class="form-group">
+            <label for="protein" class="form-label">Protein (gram) <span class="req">*</span></label>
+            <input type="number" step="0.1" id="protein" class="form-control" placeholder="Örn: 12.5" min="0" required>
+          </div>
+
+          <div class="form-group">
+            <label for="carbs" class="form-label">Karbonhidrat (gram) <span class="req">*</span></label>
+            <input type="number" step="0.1" id="carbs" class="form-control" placeholder="Örn: 30.0" min="0" required>
+          </div>
+
+          <div class="form-group">
+            <label for="fat" class="form-label">Yağ (gram) <span class="req">*</span></label>
+            <input type="number" step="0.1" id="fat" class="form-control" placeholder="Örn: 8.0" min="0" required>
+          </div>
+
+          <div class="form-group col-full">
+            <span id="nutrition-error" class="error-message"></span>
+          </div>
+        </div>
+
+        <!-- Butonlar -->
+        <div style="margin-top: 25px; display: flex; gap: 12px; align-items: center;">
+          <button type="submit" class="btn btn-primary" style="padding: 12px 28px; font-size: 1rem;">
+            ✔ Tarifi Kaydet ve Yayınla
+          </button>
+          <button type="reset" class="btn btn-secondary">
+            Temizle
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+
+  <!-- ==================== ALT BİLGİ (FOOTER) ==================== -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div>
+        <strong>CEN227 İnternet Programcılığı</strong> — Vize Projesi (Yemek Portalı)
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Tarifler</a>
+        <a href="detail.html">Detay</a>
+        <a href="form.html">Tarif Gönder</a>
+        <a href="table.html">Besin Tablosu</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script Dosyaları -->
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
+
